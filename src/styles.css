@@ -1126,3 +1126,24 @@ body {
     0 0 6px rgba(255, 92, 138, 0.6),
     0 0 14px rgba(255, 92, 138, 0.4);
 }
+/* all wishes */
+.wish {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+
+  opacity: 0.85;
+  transition: all 0.6s ease;
+}
+
+/* last wish highlighted */
+.last-wish .wish {
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: #ff5c8a;
+
+  text-shadow:
+    0 0 6px rgba(255, 92, 138, 0.6),
+    0 0 14px rgba(255, 92, 138, 0.4);
+}
