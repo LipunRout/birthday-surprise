@@ -697,3 +697,419 @@ body {
     0 0 4px rgba(255, 182, 193, 0.35),
     0 0 10px rgba(255, 214, 232, 0.45);
 }
+/* 🎵 MUSIC BUTTON */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+
+  background: linear-gradient(135deg, #ff8fab, #ff5c8a);
+  color: white;
+
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+
+  box-shadow: 0 10px 25px rgba(255, 92, 138, 0.45);
+  cursor: pointer;
+  z-index: 50;
+}
+
+.music-btn:hover {
+  transform: translateY(-1px);
+}
+/* 🌸 GLOBAL MESSAGE OVERLAY */
+.global-message-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 240, 245, 0.55);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 💌 MESSAGE CARD */
+.global-message-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 22px;
+  padding: 2rem 1.8rem;
+  max-width: 320px;
+  text-align: center;
+
+  box-shadow: 0 20px 40px rgba(255, 92, 138, 0.25);
+  animation: messageFadeIn 1s ease;
+}
+
+/* ✍️ TEXT */
+.global-message-text {
+  font-family: "cursive";
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* ✨ BUTTON */
+.global-message-btn {
+  margin-top: 1.2rem;
+  background: linear-gradient(135deg, #ff8fab, #ff5c8a);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 0.4rem 1.2rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 92, 138, 0.4);
+}
+
+/* subtle animation */
+@keyframes messageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+/* 🌙 MODERN FONT */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
+
+/* body {
+  font-family: "Inter", system-ui, sans-serif;
+} */
+
+/* 🪞 GLASS COUNTDOWN CARD */
+.countdown-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 2.2rem 2rem;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(255, 92, 138, 0.25);
+  animation: fadeUp 0.8s ease, breathe 4s ease-in-out infinite;
+}
+
+/* 🌙 SOFT HALO GLOW */
+.countdown-card::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 30px;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 140, 180, 0.35),
+    transparent 70%
+  );
+  z-index: -1;
+  filter: blur(18px);
+}
+
+/* TITLE */
+.countdown-title {
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 1.2rem;
+}
+
+/* ⏳ TIMER ROW */
+.countdown-timer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 1.4rem;
+}
+
+/* ✨ TIME DUST */
+.countdown-timer::after {
+  content: "· · ·";
+  position: absolute;
+  bottom: -14px;
+  font-size: 1.2rem;
+  opacity: 0.3;
+  letter-spacing: 6px;
+  animation: drift 6s ease-in-out infinite;
+}
+
+/* TIME BOX */
+.time-box {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 0.8rem 0.7rem;
+  min-width: 72px;
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* NUMBERS */
+.time-value {
+  font-size: 1.6rem;
+  font-weight: 500;
+  display: block;
+}
+
+/* LABELS */
+.time-label {
+  font-size: 0.65rem;
+  opacity: 0.6;
+  letter-spacing: 1px;
+}
+
+/* COLON */
+.colon {
+  font-size: 1.4rem;
+  opacity: 0.5;
+}
+
+/* 💗 SECONDS MICRO-PULSE */
+.time-box:last-child {
+  animation: secondPulse 1s ease-in-out infinite;
+}
+
+/* ✨ ANIMATIONS */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    box-shadow: 0 20px 40px rgba(255, 92, 138, 0.22);
+  }
+  50% {
+    box-shadow: 0 28px 55px rgba(255, 92, 138, 0.35);
+  }
+}
+
+@keyframes drift {
+  0% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  100% { transform: translateX(-6px); }
+}
+
+@keyframes secondPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+@keyframes whisper {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.5; }
+}
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 600;        /* bold footer text */
+  opacity: 0.85;
+}
+
+/* footer text */
+.footer-text {
+  font-size: 0.7rem;
+  line-height: 1.4;
+  opacity: 0.7;
+}
+
+/* =========================
+   CHAT BUTTON (FOOTER)
+========================= */
+
+.footer-chat {
+  margin-bottom: 0.8rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* button base */
+.chat-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+
+  opacity: 0.75;
+  animation: chatFloat 3s ease-in-out infinite;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* hover */
+.chat-btn:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* glowing text */
+.chat-text {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+
+  color: #ff5c8a;
+  opacity: 0.9;
+
+  text-shadow:
+    0 0 6px rgba(255, 92, 138, 0.6),
+    0 0 12px rgba(255, 92, 138, 0.4);
+
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+/* emoji */
+.chat-emoji {
+  font-size: 1.6rem;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes chatFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 6px rgba(255, 92, 138, 0.6),
+      0 0 12px rgba(255, 92, 138, 0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(255, 92, 138, 0.9),
+      0 0 20px rgba(255, 92, 138, 0.6);
+  }
+}
+/* =========================
+   CHAT CARD (FOOTER)
+========================= */
+
+.chat-card {
+  padding: 0.8rem 1.2rem;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+
+  box-shadow:
+    0 10px 25px rgba(255, 92, 138, 0.25),
+    inset 0 0 10px rgba(255, 255, 255, 0.6);
+
+  animation: cardFadeUp 1.2s ease forwards;
+}
+
+/* button inside card */
+.chat-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+
+  animation: chatFloat 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+/* hover effect */
+.chat-card:hover {
+  box-shadow:
+    0 12px 30px rgba(255, 92, 138, 0.35),
+    inset 0 0 12px rgba(255, 255, 255, 0.7);
+}
+
+.chat-btn:hover {
+  transform: scale(1.05);
+}
+
+/* glowing text */
+.chat-text {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+
+  color: #ff5c8a;
+
+  text-shadow:
+    0 0 6px rgba(255, 92, 138, 0.6),
+    0 0 12px rgba(255, 92, 138, 0.4);
+
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+/* emoji */
+.chat-emoji {
+  font-size: 1.6rem;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes cardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes chatFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 6px rgba(255, 92, 138, 0.6),
+      0 0 12px rgba(255, 92, 138, 0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(255, 92, 138, 0.9),
+      0 0 20px rgba(255, 92, 138, 0.6);
+  }
+}
+.contact-form textarea {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
