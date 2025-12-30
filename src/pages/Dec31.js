@@ -1,71 +1,73 @@
 import { useEffect, useRef, useState } from "react";
 import PandaGif from "../components/PandaGif";
-// import { useNavigate } from "react-router-dom";
 
 const wishesList = [
-  "You light up every room, and somehow my world too ✨💖",
-  "Seeing you happy makes everything feel right 🫶🌸",
-  "Soft soul, strong heart and a bond getting stronger 🌿❤️",
-  "Quietly unforgettable, just like what we share ✨🤍",
-  "Gugu, your smile stays with me long after the moment 🌙😊",
-  "Some people shine loud, but we glow together 💫🤝",
-  "Not youuu making silence feel safe between us 🤍🌙",
-  "You carry warmth, and it reaches me every time 🔆💞",
-  "Gugu, when you’re happy, the world feels lighter 🌸🌍",
-  "Your kindness doesn’t just speak, it connects us 💖🔗",
-  "Not youuu being the reason moments feel special 🌷✨",
-  "We turn ordinary days into memories together 📸💫",
+  "Ok aji Tame Asithila Dunia Ku ✨💖",
+  "And Hm 20 Years lagigala Ame DEKHA heba pain 🫶🌸",
+  "But finally dekha heigale MCA re!! 🌿❤️",
+  "Gugu Mane achhi Day -1 ✨🤍",
+  "Mun ta bhabi b Nathili Ame Katha B heba BOliii 🌙😊",
+  "But lately Ame aji akathiii 💫🤝",
+  "Nov-21 You texted Me for The first Time🤍🌙",
+  "Hm hm Mun janichi photo pain Karithila so, 🔆💞",
+  "Mun Greatfull Coz Then Ame katha heba Strat Karithiile 🌸🌍",
+  "And aji jaha b bond Ame share karuche💖🔗",
+  "I'm Always GreatFull For You🌷✨",
+  "Hm Mote Bht kharap lage Jetebele Tmku Tens Dekhe 💫",
   "Gugu, your energy feels safe that’s why this bond feels real 🕊️🤍",
-  "Not youuu leaving happiness behind without trying 💭😊",
-  "Your heart shows, and that’s what brings us closer 🤲💕",
-  "Gugu, softness really is strength especially in us 🌼💪",
-  "You make me feel seen, and that deepens everything 👀💞",
-  "Not youuu being the calm that holds us steady 🌊🤍",
-  "Your presence feels like a promise we’re keeping ✨🫶",
-  "Gugu, grace looks different when it’s shared 🌺🤍",
+  "Gugu mun wish Kare Tme kebe B semity Tens na kara 💭😊",
+  "Ki tmr down Time Na asu 🤲💕",
+  "and I Know U r a Strong & Pure Soul  🌼💪",
+  "And Tame Sabu Khichhi Handle Karineba Nije  👀💞",
+  "But i don't Want ki tmr Kebe Semity kichhi B dina Asu 🌊🤍",
+  "And jadi b asuchi tme eka na face na kara ✨🫶",
+  "Mun achhi as Always You Know.. But tme Ta janicha au.. 🌺🤍",
   "You don’t need to be loud our bond speaks for itself ⚡💖",
-  "Not youuu turning feelings into comfort for both of us 🫶🌙",
-  "You’re gentle, never weak and that’s why this works 🌱🤍",
-  "Gugu, your smile<3 😊🌈",
-  "You feel familiar, because this bond feels real 🌍💞",
-  "Not youuu being someone who makes connections deeper 💌✨",
+  "And Hm Mun Bht Kichi Sikhichi Tmku 🫶🌙",
+  "Sesabu Kahibi Pakhre Thila bele 🌱🤍",
+  "Gugu, Pleaseeeee smileeeee <3 😊🌈",
+  "And I know Ata Kichhi Bada jinsa nuha...",
+  "A website Ta...",
+  "But Seriously I make It from the bottom of my heart 💖",
+  "Every Element re Mun Bahut Time deichi  🌸✨",
+  "And Tme Janicha Perfection mo PAin kete MAtter KAre",
+  "So Mun Bht Care & Patience re sabu kichhi baneiichi  🤍🫶",
+  "Happy Spiritual Birthday Gugu 💫💞",
+  "And Hm Se tale jou chat OPtion achhi Seta re click KAriki kn Feel kala KAhiba!!!! 💬✨",
 ];
 
 export default function Dec31() {
   const [wishes, setWishes] = useState([]);
   const [hearts, setHearts] = useState([]);
 
-  const shuffledWishesRef = useRef(
-    [...wishesList].sort(() => Math.random() - 0.5)
-  );
-
+  const wishesRef = useRef(wishesList);
   const [wishIndex, setWishIndex] = useState(0);
   const bottomRef = useRef(null);
 
-  // auto scroll
+  /* 🔹 Auto-scroll when new wish appears */
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [wishes]);
 
-  // wish flow
+  /* 🔹 Wish flow (ORDERED) */
   useEffect(() => {
-    if (wishIndex >= shuffledWishesRef.current.length) return;
+    if (wishIndex >= wishesRef.current.length) return;
 
     const interval = setInterval(() => {
-      setWishes((prev) => [...prev, shuffledWishesRef.current[wishIndex]]);
-      setWishIndex((prev) => prev + 1);
+      setWishes(prev => [...prev, wishesRef.current[wishIndex]]);
+      setWishIndex(prev => prev + 1);
     }, 2000);
 
     return () => clearInterval(interval);
   }, [wishIndex]);
 
-  // heart rain
+  /* 💖 Heart rain on tap */
   const dropHeart = () => {
     const id = Date.now();
-    setHearts((prev) => [...prev, id]);
+    setHearts(prev => [...prev, id]);
 
     setTimeout(() => {
-      setHearts((prev) => prev.filter((h) => h !== id));
+      setHearts(prev => prev.filter(h => h !== id));
     }, 3000);
   };
 
@@ -78,16 +80,22 @@ export default function Dec31() {
         <p>(Not Youuu) refers to you 🌸</p>
 
         <div className="wishes-scroll">
-          {wishes.map((w, i) => (
-            <div key={i} className={`wish-item`}>
-              <p className="wish">{w}</p>
-            </div>
-          ))}
+          {wishes.map((w, i) => {
+            const isLast = i === wishes.length - 1;
+
+            return (
+              <div
+                key={i}
+                className={`wish-item ${isLast ? "last-wish" : ""}`}
+              >
+                <p className="wish">{w}</p>
+              </div>
+            );
+          })}
           <div ref={bottomRef} />
         </div>
-        
 
-        {hearts.map((h) => (
+        {hearts.map(h => (
           <span
             key={h}
             className="heart-rain"
