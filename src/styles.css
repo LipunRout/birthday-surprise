@@ -1203,3 +1203,14 @@ body {
   transform: scale(1.4);
   box-shadow: 0 0 8px rgba(255, 92, 138, 0.6);
 }
+.intro-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 2.2rem;
+  border-radius: 24px;
+  max-width: 380px;
+  text-align: center;
+
+  box-shadow: 0 20px 40px rgba(255, 92, 138, 0.25);
+  animation: fadeIn 0.8s ease;
+}
