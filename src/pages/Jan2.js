@@ -1,81 +1,114 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Jan2() {
-  // 🎯 NEXT Jan 2, 12:00 AM (memoized once)
-  const target = useMemo(
-    () => new Date("2026-01-02T00:00:00"),
-    []
-  );
+  const [media, setMedia] = useState([]);
+  const [index, setIndex] = useState(0);
+  const [showFinal, setShowFinal] = useState(false);
 
-  const [timeLeft, setTimeLeft] = useState(
-    target - new Date()
-  );
-
+  // load media list
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(target - new Date());
-    }, 1000);
+    fetch("/jan2/media.json")
+      .then(res => res.json())
+      .then(data => setMedia(data));
+  }, []);
 
-    return () => clearInterval(timer);
-  }, [target]);
+  // auto-advance ONLY for images
+  useEffect(() => {
+    if (!media.length) return;
 
-  if (timeLeft <= 0) {
+    const current = media[index];
+    if (!current) return;
+
+    if (current.type === "image") {
+      const timer = setTimeout(() => {
+        if (index < media.length - 1) {
+          setIndex(prev => prev + 1);
+        }
+      }, 3500); // image duration
+
+      return () => clearTimeout(timer);
+    }
+  }, [index, media]);
+
+  // final wish screen
+  if (showFinal) {
     return (
       <div className="page center-box">
-        <div className="countdown-card">
-          <h2>Happy Birthday, Not Youuu 💖</h2>
-          <p className="soft-text">
-            You waited.
+        <div className="final-card">
+          <h2>For You</h2>
+
+          <p className="final-text">
+            This wasn’t about a date.
             <br />
-            And this moment was always meant to be yours.
+            It was about how softly
+            <br />
+            you stay in my thoughts.
           </p>
+
+          <p className="final-text highlight">
+            I’m really glad it’s you.
+          </p>
+
+          <p className="final-sign">— Not Youuu 🤍</p>
         </div>
       </div>
     );
   }
 
-  const hours = String(
-    Math.floor(timeLeft / (1000 * 60 * 60))
-  ).padStart(2, "0");
-
-  const minutes = String(
-    Math.floor((timeLeft / (1000 * 60)) % 60)
-  ).padStart(2, "0");
-
-  const seconds = String(
-    Math.floor((timeLeft / 1000) % 60)
-  ).padStart(2, "0");
+  const current = media[index];
 
   return (
     <div className="page center-box">
-      <div className="countdown-card">
-        <h2 className="countdown-title">Almost there</h2>
+      <div className="romantic-card">
+        {/* IMAGE */}
+        {current?.type === "image" && (
+          <img
+            src={current.src}
+            alt="memory"
+            className="romantic-media"
+          />
+        )}
 
-        <div className="countdown-timer">
-          <TimeBox value={hours} label="Hours" />
-          <span className="colon">:</span>
-          <TimeBox value={minutes} label="Minutes" />
-          <span className="colon">:</span>
-          <TimeBox value={seconds} label="Seconds" />
-        </div>
+        {/* VIDEO */}
+        {current?.type === "video" && (
+          <video
+            src={current.src}
+            className="romantic-media"
+            muted
+            autoPlay
+            playsInline
+            onEnded={() => {
+              if (index < media.length - 1) {
+                setIndex(prev => prev + 1);
+              }
+            }}
+          />
+        )}
 
-        <p className="soft-text">
-          January 2 • 12:00 AM
-          <br />
-          Some moments are meant to be felt slowly.
-          <br />
-          This one is waiting for you.
+        <p className="romantic-caption">
+          {current?.caption}
         </p>
-      </div>
-    </div>
-  );
-}
+        {/* progress dots */}
+<div className="progress-dots">
+  {media.map((_, i) => (
+    <span
+      key={i}
+      className={`dot ${i === index ? "active" : ""}`}
+    />
+  ))}
+</div>
 
-function TimeBox({ value, label }) {
-  return (
-    <div className="time-box">
-      <span className="time-value">{value}</span>
-      <span className="time-label">{label}</span>
+
+        {/* Final button */}
+        {index === media.length - 1 && (
+          <button
+            className="magic-btn mt-3"
+            onClick={() => setShowFinal(true)}
+          >
+            Final Wish 🤍
+          </button>
+        )}
+      </div>
     </div>
   );
 }

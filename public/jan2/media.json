@@ -1,0 +1,52 @@
+[
+  {
+    "type": "video",
+    "src": "/jan2/1.MOV",
+    "caption": "Some moments don’t need words."
+  },
+  {
+    "type": "video",
+    "src": "/jan2/2.MOV",
+    "caption": "Some memories move, just like this."
+  },
+  {
+    "type": "image",
+    "src": "/jan2/3.jpeg",
+    "caption": "Some smiles stay longer than the day."
+  },
+  {
+    "type": "video",
+    "src": "/jan2/4.MOV",
+    "caption": "Some feelings are better felt than said."
+  },
+  {
+    "type": "video",
+    "src": "/jan2/5.MOV",
+    "caption": "Quiet moments matter the most."
+  },
+  {
+    "type": "image",
+    "src": "/jan2/6.jpeg",
+    "caption": "You make ordinary days softer."
+  },
+  {
+    "type": "video",
+    "src": "/jan2/7.mov",
+    "caption": "Some memories feel like home."
+  },
+  {
+    "type": "video",
+    "src": "/jan2/8.MOV",
+    "caption": "This one makes me smile every time."
+  },
+  {
+    "type": "image",
+    "src": "/jan2/9.jpeg",
+    "caption": "Time slows down here."
+  },
+  {
+    "type": "video",
+    "src": "/jan2/10.MOV",
+    "caption": "And this… is my favorite."
+  }
+]
